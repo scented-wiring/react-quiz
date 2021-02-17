@@ -25,6 +25,7 @@ const App = () => {
   const [gameOver, setGameOver] = useState(true);
 
   const [category, setCategory] = useState(9);
+  const [categoryName, setCategoryName] = useState("");
   const [difficulty, setDifficulty] = useState("easy");
 
   const startTrivia = async () => {
@@ -38,6 +39,7 @@ const App = () => {
     );
 
     setQuestions(newQuestions);
+    setCategoryName(newQuestions[0].category.replace("Entertainment: ", ""));
     setScore(0);
     setUserAnswers([]);
     setNumber(0);
@@ -97,6 +99,11 @@ const App = () => {
               Start
             </button>
           </div>
+        ) : null}
+        {!loading && !gameOver ? (
+          <p className="game-params">
+            {categoryName} ({difficulty})
+          </p>
         ) : null}
         {!gameOver ? <p className="score">Score: {score}</p> : null}
         {loading && <p>Loading Questions...</p>}

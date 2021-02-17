@@ -31,6 +31,7 @@ export const Wrapper = styled.div`
     color: white;
   }
 
+  .game-params,
   .score {
     color: white;
     font-size: 2rem;
@@ -50,7 +51,7 @@ export const Wrapper = styled.div`
     font-size: 70px;
     font-weight: 400;
     text-align: center;
-    margin: 20px;
+    margin: 20px 0 0 10px;
   }
 
   .menu {
