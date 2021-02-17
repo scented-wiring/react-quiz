@@ -106,7 +106,11 @@ const App = () => {
               {categoryName} ({difficulty})
             </p>
           ) : null}
-          {!gameOver ? <p className="score">Score: {score}</p> : null}
+          {!gameOver ? (
+            <p className="score">
+              Score: {score}/{number + 1}
+            </p>
+          ) : null}
         </div>
         {loading && <p>Loading Questions...</p>}
         {!loading && !gameOver && (
