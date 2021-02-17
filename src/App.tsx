@@ -81,6 +81,25 @@ const App = () => {
       <GlobalStyle />
       <Wrapper>
         <h1>REACT QUIZ</h1>
+        <div className="details">
+          {!loading && !gameOver && userAnswers.length < 10 ? (
+            <p className="game-params">
+              {categoryName} ({difficulty})
+            </p>
+          ) : null}
+          {!loading && !gameOver ? (
+            userAnswers.length < 10 ? (
+              <p className="score">
+                Score: {score}/{number + 1}
+              </p>
+            ) : (
+              <p className="score">
+                You scored {score}/{number + 1}!<br />
+                Play again?
+              </p>
+            )
+          ) : null}
+        </div>
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
           <div className="menu">
             <select onChange={(e) => setCategory(parseInt(e.target.value))}>
@@ -100,20 +119,8 @@ const App = () => {
             </button>
           </div>
         ) : null}
-        <div className="details">
-          {!loading && !gameOver ? (
-            <p className="game-params">
-              {categoryName} ({difficulty})
-            </p>
-          ) : null}
-          {!gameOver ? (
-            <p className="score">
-              Score: {score}/{number + 1}
-            </p>
-          ) : null}
-        </div>
         {loading && <p>Loading Questions...</p>}
-        {!loading && !gameOver && (
+        {!loading && !gameOver && userAnswers.length < 10 && (
           <QuestionCard
             questionNo={number + 1}
             totalQuestions={TOTAL_QUESTIONS}

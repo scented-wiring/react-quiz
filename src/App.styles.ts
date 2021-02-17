@@ -33,10 +33,6 @@ export const Wrapper = styled.div`
   width: 550px;
   margin-top: 20px;
 
-  > p {
-    color: white;
-  }
-
   h1 {
     font-family: Fascinate Inline, sans-serif;
     background-image: linear-gradient(180deg, #d9ffb3, #73e600);
@@ -86,5 +82,6 @@ export const Wrapper = styled.div`
   .score {
     font-size: 1.5rem;
     margin: 0;
+    text-align: center;
   }
 `;
