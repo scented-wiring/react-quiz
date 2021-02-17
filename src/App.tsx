@@ -3,7 +3,7 @@ import { fetchQuizQuestions } from "./API";
 // Components
 import QuestionCard from "./components/QuestionCard";
 // Types
-import { QuestionState, Difficulty } from "./API";
+import { QuestionState } from "./API";
 // Styles
 import { GlobalStyle, Wrapper } from "./App.styles";
 
@@ -24,13 +24,17 @@ const App = () => {
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
 
+  const [category, setCategory] = useState(9);
+  const [difficulty, setDifficulty] = useState("easy");
+
   const startTrivia = async () => {
     setLoading(true);
     setGameOver(false);
 
     const newQuestions = await fetchQuizQuestions(
       TOTAL_QUESTIONS,
-      Difficulty.EASY
+      category,
+      difficulty
     );
 
     setQuestions(newQuestions);
@@ -76,9 +80,23 @@ const App = () => {
       <Wrapper>
         <h1>REACT QUIZ</h1>
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-          <button className="start" onClick={startTrivia}>
-            Start
-          </button>
+          <div className="menu">
+            <select onChange={(e) => setCategory(parseInt(e.target.value))}>
+              <option value={"9"}>General Knowledge</option>
+              <option value={"11"}>Movies</option>
+              <option value={"14"}>TV</option>
+              <option value={"10"}>Books</option>
+              <option value={"15"}>Video Games</option>
+            </select>
+            <select onChange={(e) => setDifficulty(e.target.value)}>
+              <option value={"easy"}>Easy</option>
+              <option value={"medium"}>Medium</option>
+              <option value={"hard"}>Hard</option>
+            </select>
+            <button className="start" onClick={startTrivia}>
+              Start
+            </button>
+          </div>
         ) : null}
         {!gameOver ? <p className="score">Score: {score}</p> : null}
         {loading && <p>Loading Questions...</p>}

@@ -53,6 +53,16 @@ export const Wrapper = styled.div`
     margin: 20px;
   }
 
+  .menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  select {
+    margin: 10px 0;
+    padding: 5px 10px;
+  }
+
   .start,
   .next {
     cursor: pointer;
