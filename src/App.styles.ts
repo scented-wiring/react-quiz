@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import BGImage from "./images/background.jpeg";
+import BGImage from "./images/background2.jpg";
 
 export const GlobalStyle = createGlobalStyle`
 html {
@@ -26,16 +26,15 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: #ebfeff;
+  border-radius: 10px;
+  border: 2px solid #0085a3;
+  padding: 20px;
+  width: 550px;
+  margin-top: 20px;
 
   > p {
     color: white;
-  }
-
-  .game-params,
-  .score {
-    color: white;
-    font-size: 2rem;
-    margin: 0;
   }
 
   h1 {
@@ -51,7 +50,7 @@ export const Wrapper = styled.div`
     font-size: 70px;
     font-weight: 400;
     text-align: center;
-    margin: 20px 0 0 10px;
+    margin: 0 0 10px 0;
   }
 
   .menu {
@@ -62,6 +61,7 @@ export const Wrapper = styled.div`
   select {
     margin: 10px 0;
     padding: 5px 10px;
+    width: 200px;
   }
 
   .start,
@@ -76,7 +76,15 @@ export const Wrapper = styled.div`
     padding: 0 40px;
   }
 
-  .start {
-    max-width: 200px;
+  .details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-params,
+  .score {
+    font-size: 1.5rem;
+    margin: 0;
   }
 `;
